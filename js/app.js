@@ -42,3 +42,36 @@ document.getElementById('checkWeatherBtn').addEventListener('click', function() 
         mapContainer.style.display = 'none';
     }
 });
+
+// Fetch and display 4-day weather forecast from NEA's API
+function fetchNEAForecast() {
+    const forecastContainer = document.getElementById('neaForecast');
+    forecastContainer.innerHTML = 'Loading 4-day forecast...';
+    fetch('https://api.data.gov.sg/v1/environment/4-day-weather-forecast')
+        .then(response => response.json())
+        .then(data => {
+            if (!data.items || !data.items[0] || !data.items[0].forecasts) {
+                forecastContainer.innerHTML = 'Forecast unavailable.';
+                return;
+            }
+            const forecasts = data.items[0].forecasts;
+            let html = '<div class="forecast-grid">';
+            forecasts.forEach(day => {
+                html += `<div class="forecast-day">
+                    <div class="forecast-date">${day.date}</div>
+                    <div class="forecast-desc">${day.forecast}</div>
+                    <div class="forecast-temp">${day.temperature.low}&deg;C - ${day.temperature.high}&deg;C</div>
+                </div>`;
+            });
+            html += '</div>';
+            forecastContainer.innerHTML = html;
+        })
+        .catch(() => {
+            forecastContainer.innerHTML = 'Error loading forecast.';
+        });
+}
+
+// Add forecast section on page load
+window.addEventListener('DOMContentLoaded', () => {
+    fetchNEAForecast();
+});
