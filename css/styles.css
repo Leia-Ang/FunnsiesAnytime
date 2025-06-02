@@ -1,0 +1,86 @@
+/* FunnsiesAnytime Colour Palette:
+   - Sunny Yellow: #FFD93D
+   - Sky Blue: #6EC1E4
+   - Rainy Gray: #A3A3A3
+   - Fresh Green: #7ED957
+   - White: #FFFFFF
+   - Charcoal: #222831
+*/
+
+body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background: linear-gradient(135deg, #FFD93D 0%, #6EC1E4 100%);
+    color: #222831;
+    margin: 0;
+    min-height: 100vh;
+}
+
+header {
+    background: #6EC1E4;
+    color: #222831;
+    padding: 2rem 1rem 1rem 1rem;
+    text-align: center;
+}
+
+main {
+    max-width: 600px;
+    margin: 2rem auto;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 16px rgba(34,40,49,0.08);
+    padding: 2rem;
+}
+
+#weather-check input {
+    padding: 0.5rem;
+    border: 1px solid #A3A3A3;
+    border-radius: 6px;
+    margin-right: 0.5rem;
+}
+
+#checkWeatherBtn {
+    background: #FFD93D;
+    color: #222831;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background 0.2s;
+}
+
+#checkWeatherBtn:hover {
+    background: #7ED957;
+}
+
+#weatherResult {
+    margin-top: 1rem;
+    font-size: 1.1rem;
+}
+
+#recommendations {
+    margin-top: 2rem;
+}
+
+#placesList {
+    list-style: none;
+    padding: 0;
+}
+
+#placesList li {
+    background: #6EC1E4;
+    color: #fff;
+    margin-bottom: 0.5rem;
+    padding: 0.75rem 1rem;
+    border-radius: 8px;
+}
+
+footer {
+    text-align: center;
+    padding: 1rem;
+    background: #A3A3A3;
+    color: #fff;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+}
