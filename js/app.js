@@ -24,4 +24,21 @@ document.getElementById('checkWeatherBtn').addEventListener('click', function() 
         places = ['Go shopping', 'Visit a library', 'Try a new restaurant'];
     }
     placesList.innerHTML = places.map(place => `<li>${place}</li>`).join('');
+    // Google Maps integration
+    const mapContainer = document.getElementById('mapContainer');
+    const googleMap = document.getElementById('googleMap');
+    let mapQuery = '';
+    if (weather === 'Sunny') {
+        mapQuery = `parks+outdoor+${encodeURIComponent(location)}`;
+    } else if (weather === 'Rainy') {
+        mapQuery = `museum+cafe+cinema+${encodeURIComponent(location)}`;
+    } else {
+        mapQuery = `shopping+library+restaurant+${encodeURIComponent(location)}`;
+    }
+    if (location) {
+        googleMap.src = `https://www.google.com/maps/embed/v1/search?key=AIzaSyC5jOUA4uRMjMthhIw5gENoOJPQcZ1kCgU&q=${mapQuery}`;
+        mapContainer.style.display = 'block';
+    } else {
+        mapContainer.style.display = 'none';
+    }
 });

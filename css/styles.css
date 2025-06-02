@@ -77,10 +77,12 @@ main {
 
 footer {
     text-align: center;
-    padding: 1rem;
+    padding: 0.25rem 0.5rem;
+    font-size: 0.8rem;
     background: #A3A3A3;
     color: #fff;
     position: fixed;
     width: 100%;
     bottom: 0;
+    z-index: 10;
 }
